@@ -5,9 +5,9 @@ Can also be used to quickly start a `C++` project.
 
 ## Things To Do
 
-- [ ] Implement the basic directory structure.
+- [x] Implement the basic directory structure.
+- [x] Add static analysis checks.
 - [ ] ? Use _spdlog_ or _gtest_ library to demonstrate the usage of external libraries ?
-- [ ] Add static analysis checks.
 - [ ] Provide corresponding `CMakeLists.txt` for the build (with description).
 - [ ] Implement corresponding _Unit Tests_.
 - [ ] Enable CI pipeline using _GitHub Actions_ or any other CI tool.
