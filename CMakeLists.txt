@@ -8,29 +8,47 @@
 cmake_minimum_required(VERSION 3.0.0)
 
 # --------------------------------------------------------------------------------
-#                         Locate files (change as needed).
+#                 Set variables needed for build (change as needed).
 # --------------------------------------------------------------------------------
-# Default name for the library built from src/*.cpp (change if you wish)
+
+# TODO: Change project name
+set(PROJECT_NAME "cpp-template" VERSION 0.1.0)
+
+# TODO: Change library name; same as project name
 set(LIBRARY_NAME cpp-template)
 
-# `source` directory
+set(HEADERS_DIR
+    include/${LIBRARY_NAME}
+)
+set(HEADERS
+    ${HEADERS_DIR}/Algorithm.h
+)
 set(SOURCE_DIR
     src
 )
-
-# All .cpp files in src/
-set(SOURCES
+set(SOURCE
     ${SOURCE_DIR}/Algorithm.cpp
     ${SOURCE_DIR}/main.cpp
 )
 
-# Header files directory
-set(HEADERS_DIR
-    include/${LIBRARY_NAME}
+# --------------------------------------------------------------------------------
+#                            Build! (Change as needed)
+# --------------------------------------------------------------------------------
+
+project(${PROJECT_NAME})
+
+add_library(${LIBRARY_NAME} STATIC
+    ${HEADERS}
+    ${SOURCE}
 )
 
-# All .h files in include/
-set(HEADERS
-    ${HEADERS_DIR}/Algorithm.h
+target_include_directories(${LIBRARY_NAME} PRIVATE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/${LIBRARY_NAME}>
+    $<INSTALL_INTERFACE:include/${LIBRARY_NAME}>
+)
+
+target_include_directories(${LIBRARY_NAME} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
 )
 
