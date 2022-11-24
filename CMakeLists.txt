@@ -28,7 +28,6 @@ set(SOURCE_DIR
 )
 set(SOURCE
     ${SOURCE_DIR}/Algorithm.cpp
-    ${SOURCE_DIR}/main.cpp
 )
 
 # --------------------------------------------------------------------------------
@@ -42,13 +41,21 @@ add_library(${LIBRARY_NAME} STATIC
     ${SOURCE}
 )
 
+# When used internally, import Algorithm.h as #include "Algorithm.h"
 target_include_directories(${LIBRARY_NAME} PRIVATE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/${LIBRARY_NAME}>
     $<INSTALL_INTERFACE:include/${LIBRARY_NAME}>
 )
 
+# When used externally, import Algorithm.h as #include <cpp-template/Algorithm.h>
 target_include_directories(${LIBRARY_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
 
+add_executable(bin_main ${SOURCE_DIR}/main.cpp)
+
+target_link_libraries(bin_main
+    PUBLIC
+        ${LIBRARY_NAME}
+)
