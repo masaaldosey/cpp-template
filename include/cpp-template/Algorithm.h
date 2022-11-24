@@ -1,3 +1,3 @@
 #pragma once
 
-int AddTwoNumbers(int, int);
+double AddTwoNumbers(double, double);
