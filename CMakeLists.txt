@@ -12,7 +12,7 @@ cmake_minimum_required(VERSION 3.0.0)
 # --------------------------------------------------------------------------------
 
 # TODO: Change project name
-set(PROJECT_NAME "cpp-template" VERSION 0.1.0)
+set(PROJECT_NAME "cpp-template" VERSION 0.1.0 LANGUAGES CXX)
 
 # TODO: Change library name; same as project name
 set(LIBRARY_NAME cpp-template)
@@ -53,9 +53,20 @@ target_include_directories(${LIBRARY_NAME} PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 
+# Name of executable and location of file.
 add_executable(bin_main ${SOURCE_DIR}/main.cpp)
 
+# Link the executable to library (if it uses it).
 target_link_libraries(bin_main
-    PUBLIC
+    PRIVATE
         ${LIBRARY_NAME}
+)
+
+# Set the properties you require, e.g. what C++ standard to use.
+# Here applied to library and main (change as needed).
+set_target_properties(
+    ${LIBRARY_NAME} bin_main
+      PROPERTIES
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED YES
 )
