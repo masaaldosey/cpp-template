@@ -1,7 +1,7 @@
 # A Very Minimal C++ Template
 
-A repo to quickly understand the basics of a build system in a `C++` project.
-Can also be used to quickly start a `C++` project.
+A repo to quickly understand the basics of a build system in a _C++_ project.
+Can also be used to quickly start a _C++_ project.
 
 ## Things To Do
 
