@@ -71,19 +71,10 @@ target_include_directories(${LIBRARY_NAME} PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 
-# Name of executable and location of file.
-add_executable(bin_main ${SOURCE_DIR}/main.cpp)
-
-# Link the executable to library (if it uses it).
-target_link_libraries(bin_main
-    PRIVATE
-        ${LIBRARY_NAME}
-)
-
 # Set the properties you require, e.g. what C++ standard to use.
 # Here applied to library and main (change as needed).
 set_target_properties(
-    ${LIBRARY_NAME} bin_main
+    ${LIBRARY_NAME}
       PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED YES

@@ -6,5 +6,5 @@
 TEST(AlgorithmTest, CheckSum)
 {
   ASSERT_EQ(AddTwoNumbers(1.1, 2.15), 3.25);
-  EXPECT_TRUE(true);
+  ASSERT_EQ(AddTwoNumbers(2, 1), 3);
 }
