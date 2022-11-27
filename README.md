@@ -8,7 +8,7 @@ Can also be used to quickly start a _C++_ project.
 - [x] Implement the basic directory structure.
 - [x] Add static analysis checks.
 - [x] Provide corresponding `CMakeLists.txt` for the build (with description).
-- [ ] :question: Use _gtest_ library to demonstrate the usage of external libraries :question:
-- [ ] Implement corresponding _Unit Tests_.
+- [x] :question: Use _gtest_ library to demonstrate the usage of external libraries :question:
+- [x] Implement corresponding _Unit Tests_.
 - [ ] Enable CI pipeline using _GitHub Actions_ or any other CI tool.
 - [ ] Enable documentation for the project.
