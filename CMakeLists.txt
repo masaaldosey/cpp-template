@@ -32,11 +32,11 @@ option(${PROJECT_NAME}_ENABLE_CODE_COVERAGE "Enable code coverage through GCC." 
 option(${PROJECT_NAME}_USE_GTEST "Use the GoogleTest project for creating unit tests." ON)
 option(${PROJECT_NAME}_USE_GOOGLE_MOCK "Use the GoogleMock project for extending the unit tests." OFF)
 
-# TODO: Change library name; same as project name
-set(LIBRARY_NAME cpp-template)
+# # TODO: Change library name; same as project name
+# set(LIBRARY_NAME cpp-template)
 
 set(HEADERS_DIR
-    include/${LIBRARY_NAME}
+    include/${PROJECT_NAME}
 )
 set(HEADERS
     ${HEADERS_DIR}/Algorithm.h
@@ -52,7 +52,7 @@ set(SOURCE
 #                            Build! (Change as needed)
 # --------------------------------------------------------------------------------
 
-add_library(${LIBRARY_NAME} STATIC
+add_library(${PROJECT_NAME} STATIC
     ${HEADERS}
     ${SOURCE}
 )
@@ -60,13 +60,13 @@ add_library(${LIBRARY_NAME} STATIC
 add_clang_format_target()
 
 # When used internally, import Algorithm.h as #include "Algorithm.h"
-target_include_directories(${LIBRARY_NAME} PRIVATE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/${LIBRARY_NAME}>
-    $<INSTALL_INTERFACE:include/${LIBRARY_NAME}>
+target_include_directories(${PROJECT_NAME} PRIVATE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}>
+    $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
 )
 
 # When used externally, import Algorithm.h as #include <cpp-template/Algorithm.h>
-target_include_directories(${LIBRARY_NAME} PUBLIC
+target_include_directories(${PROJECT_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
@@ -74,7 +74,7 @@ target_include_directories(${LIBRARY_NAME} PUBLIC
 # Set the properties you require, e.g. what C++ standard to use.
 # Here applied to library and main (change as needed).
 set_target_properties(
-    ${LIBRARY_NAME}
+    ${PROJECT_NAME}
       PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED YES
@@ -119,7 +119,7 @@ install(
   include
 )
 
-verbose_message("Install targets successfully built. Install with `cmake --build <build_directory> --target install --config <build_config>`.")
+verbose_message("Install targets successfully built. Install with `cmake --build <build_directory> --target install --config <build_config>`.\n")
 
 if(${PROJECT_NAME}_ENABLE_UNIT_TESTING)
   enable_testing()
