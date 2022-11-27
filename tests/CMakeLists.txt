@@ -1,15 +1,10 @@
 cmake_minimum_required(VERSION 3.11.0)
 
-#
 # Project details
-#
-
-project(
-  ${CMAKE_PROJECT_NAME}
-  LANGUAGES CXX
-)
+project( ${CMAKE_PROJECT_NAME} LANGUAGES CXX)
 
 message(STATUS "Adding tests under ${CMAKE_PROJECT_NAME}/tests...")
+
 
 set(TEST_SOURCES
     test_algorithm.cpp
@@ -20,27 +15,18 @@ foreach(file ${TEST_SOURCES})
   string(REGEX REPLACE "(.*/)([a-zA-Z0-9_ ]+)(\.cpp)" "\\2" test_name ${file}) 
   add_executable(${test_name} ${file})
 
-  #
   # Set the compiler standard
-  #
-
   target_compile_features(${test_name} PUBLIC cxx_std_17)
 
-  #
   # Setup code coverage if enabled
-  #
-
   if (${CMAKE_PROJECT_NAME}_ENABLE_CODE_COVERAGE)
     target_compile_options(${CMAKE_PROJECT_NAME} PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
     target_link_options(${CMAKE_PROJECT_NAME} PUBLIC -fprofile-arcs -ftest-coverage)
     verbose_message("Code coverage is enabled and provided with GCC.")
   endif()
 
-  #
   # Load the desired unit testing framework
-  #
   # Currently supported: GoogleTest (and GoogleMock)
-
   if(${CMAKE_PROJECT_NAME}_BUILD_EXECUTABLE)
     set(${CMAKE_PROJECT_NAME}_TEST_LIB ${CMAKE_PROJECT_NAME}_LIB)
   else()
@@ -66,10 +52,7 @@ foreach(file ${TEST_SOURCES})
     message(FATAL_ERROR "Unknown testing library. Please setup your desired unit testing library by using `target_link_libraries`.")  
   endif()
 
-  #
   # Add the unit tests
-  #
-
   add_test(
     NAME
       ${test_name}
