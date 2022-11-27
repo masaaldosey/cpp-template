@@ -10,5 +10,5 @@ Can also be used to quickly start a _C++_ project.
 - [x] Provide corresponding `CMakeLists.txt` for the build (with description).
 - [x] :question: Use _gtest_ library to demonstrate the usage of external libraries :question:
 - [x] Implement corresponding _Unit Tests_.
-- [ ] Enable CI pipeline using _GitHub Actions_ or any other CI tool.
+- [ ] *WIP* Enable CI pipeline using _GitHub Actions_ or any other CI tool.
 - [ ] Enable documentation for the project.
