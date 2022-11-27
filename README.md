@@ -1,5 +1,4 @@
 [![Ubuntu](https://github.com/masaaldosey/cpp-template/actions/workflows/ubuntu.yml/badge.svg?branch=main)](https://github.com/masaaldosey/cpp-template/actions/workflows/ubuntu.yml)
-
 [![codecov](https://codecov.io/gh/masaaldosey/cpp-template/branch/main/graph/badge.svg?token=NgWXRb0ta4)](https://codecov.io/gh/masaaldosey/cpp-template)
 
 
