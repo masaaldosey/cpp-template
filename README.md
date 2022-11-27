@@ -1,3 +1,4 @@
+[![Ubuntu](https://github.com/masaaldosey/cpp-template/actions/workflows/ubuntu.yml/badge.svg?branch=main)](https://github.com/masaaldosey/cpp-template/actions/workflows/ubuntu.yml)
 # A Very Minimal C++ Template
 
 A repo to quickly understand the basics of a build system in a _C++_ project.
