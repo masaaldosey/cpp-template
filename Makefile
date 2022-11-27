@@ -1,4 +1,4 @@
-.PHONY: install coverage test docs help
+.PHONY: install coverage test help
 .DEFAULT_GOAL := help
 
 define BROWSER_PYSCRIPT
