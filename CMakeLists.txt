@@ -20,7 +20,7 @@ endif()
 # --------------------------------------------------------------------------------
 
 # TODO: Change project name
-project("cpp-template" VERSION 0.1.0 LANGUAGES CXX)
+project("cpp-template" VERSION 0.2.0 LANGUAGES CXX)
 # Library name can be same as project name
 set(LIBRARY_NAME adder)
 
