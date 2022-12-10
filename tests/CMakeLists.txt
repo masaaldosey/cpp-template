@@ -51,4 +51,4 @@ foreach(file ${TEST_SOURCES})
   )
 endforeach()
 
-verbose_message("Finished adding unit tests for ${CMAKE_PROJECT_NAME}.\n")
+verbose_message("Finished adding unit tests for library: ${LIBRARY_NAME}.\n")
