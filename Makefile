@@ -1,4 +1,4 @@
-.PHONY: install coverage test help
+.PHONY: coverage test help
 .DEFAULT_GOAL := help
 
 define BROWSER_PYSCRIPT
@@ -43,14 +43,3 @@ coverage: ## check code coverage quickly GCC
 	cmake --build build --config Release
 	cd build/ && ctest -C Release -VV
 	cd .. && (bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +" || true)
-
-install: ## install the package to the `INSTALL_LOCATION`
-	rm -rf build/
-	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION)
-	cmake --build build --config Release
-	cmake --build build --target install --config Release
-
-format: ## format the project sources
-	rm -rf build/
-	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION)
-	cmake --build build --target clang-format
