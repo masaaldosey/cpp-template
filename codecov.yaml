@@ -1,5 +1,5 @@
 ignore:
-  - "test"
+  - "cpp-template/examples"
 
 comment:
   require_changes: true
