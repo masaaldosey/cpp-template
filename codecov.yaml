@@ -1,5 +1,5 @@
 ignore:
-  - "cpp-template/examples/*.cpp"
+  - "examples/*.cpp"
 
 comment:
   require_changes: true
