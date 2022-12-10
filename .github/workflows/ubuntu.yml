@@ -9,6 +9,7 @@ on:
 env:
   BUILD_TYPE: Release
   INSTALL_LOCATION: .local
+  PROJECT: cpp-template
 
 jobs:
   build:
@@ -36,8 +37,8 @@ jobs:
         cmake --build build --config Release
         cmake --build build --target install --config Release
 
-    - name: configure
-      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -Dcpp-template_ENABLE_CODE_COVERAGE=1
+    - name: configure cmake
+      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -D${{ env.PROJECT }}_ENABLE_CODE_COVERAGE=1
       
     - name: build
       run: cmake --build build --config $BUILD_TYPE -j4
@@ -48,7 +49,4 @@ jobs:
         ctest -C $BUILD_TYPE -VV
 
     - name: Code coverage using Codecov 
-      run: bash <(curl -s https://codecov.io/bash) 
-
-    - name: install cpp-template
-      run: cmake --build build --target install --config Release 
+      run: bash <(curl -s https://codecov.io/bash)
