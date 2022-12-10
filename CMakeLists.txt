@@ -35,7 +35,7 @@ option(${PROJECT_NAME}_USE_GTEST "Use the GoogleTest project for creating unit t
 option(${PROJECT_NAME}_USE_GOOGLE_MOCK "Use the GoogleMock project for extending the unit tests." OFF)
 
 
-# compile the library
+# Compile the library
 add_subdirectory(src)
 
 message(STATUS "Successfully added all dependencies and linked against them.\n")

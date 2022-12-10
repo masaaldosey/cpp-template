@@ -1,6 +1,6 @@
 message(STATUS "Adding tests under ${CMAKE_PROJECT_SOURCE_DIR}/tests...")
 
-# TODO: add all test .cpp files
+# TODO: Add all test .cpp files
 set(TEST_SOURCES
     test_adder.cpp
 )
