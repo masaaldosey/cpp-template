@@ -51,33 +51,3 @@ if(${PROJECT_NAME}_ENABLE_UNIT_TESTING)
   verbose_message("TESTING is enabled for the project.")
   add_subdirectory(tests)
 endif()
-
-# # Install library for easy downstream inclusion
-# include(GNUInstallDirs)
-# install(
-#   TARGETS
-#   ${LIBRARY_NAME}
-#   EXPORT
-#   ${PROJECT_NAME}Targets
-#   LIBRARY DESTINATION
-#   ${CMAKE_INSTALL_LIBDIR}
-#   RUNTIME DESTINATION
-#   ${CMAKE_INSTALL_BINDIR}
-#   ARCHIVE DESTINATION
-#   ${CMAKE_INSTALL_LIBDIR}
-#   INCLUDES DESTINATION
-#   include
-#   PUBLIC_HEADER DESTINATION
-#   include
-# )
-
-# install(
-#   EXPORT
-#   ${PROJECT_NAME}Targets
-#   FILE
-#   ${PROJECT_NAME}Targets.cmake
-#   NAMESPACE
-#   ${PROJECT_NAME}::
-#   DESTINATION
-#   ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
-# )
